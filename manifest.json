@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark Manager",
+  "version": "1.0",
+  "description": "Save, organize, and manage bookmarks",
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
