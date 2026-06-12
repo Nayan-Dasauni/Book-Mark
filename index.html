@@ -4,33 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bookmark Manager</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>📚 Bookmark Manager</h1>
+  </header>
 
-  <header>&#128218; Bookmark Manager</header>
+  <main class="container">
+    <aside class="sidebar" aria-label="Bookmark controls">
+      <div class="search-box">
+        <label for="searchInput">Search bookmarks</label>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search bookmarks..."
+          autocomplete="off"
+        />
+      </div>
 
-  <div class="container">
+      <section aria-labelledby="formHeading">
+        <h2 id="formHeading">Add / Edit Bookmark</h2>
 
-    <div class="sidebar">
-      <input type="text" id="searchInput" placeholder="&#128269; Search bookmarks..." />
-      
-      <h3 style="margin-top:0;color:#4a90e2;">Add / Edit Bookmark</h3>
-      
-      <input type="text" id="title" placeholder="Title" required />
-      <input type="url" id="url" placeholder="URL" required />
-      <input type="text" id="tags" placeholder="Tags (comma separated)" />
-      <textarea id="description" placeholder="Description"></textarea>
-      
-      <button id="saveBookmark">&#128190; Save Bookmark</button>
-      <button id="clearForm" style="margin-top:5px;background:#bbb;">Clear Form</button>
-    </div>
+        <form id="bookmarkForm">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Enter bookmark title" required />
 
-    <div class="content" id="bookmarkList"></div>
+          <label for="url">URL</label>
+          <input type="url" id="url" name="url" placeholder="https://example.com" required />
 
-  </div>
+          <label for="tags">Tags</label>
+          <input type="text" id="tags" name="tags" placeholder="e.g. coding, notes, tools" />
+
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Write a short description"></textarea>
+
+          <div class="form-actions">
+            <button type="submit" id="saveBookmark">💾 Save Bookmark</button>
+            <button type="reset" id="clearForm">Clear Form</button>
+          </div>
+        </form>
+      </section>
+    </aside>
+
+    <section class="content" aria-labelledby="bookmarkListHeading">
+      <h2 id="bookmarkListHeading">Saved Bookmarks</h2>
+      <div id="bookmarkList" aria-live="polite">
+        <p>No bookmarks added yet.</p>
+      </div>
+    </section>
+  </main>
 
   <script src="app.js"></script>
-
 </body>
 </html>
